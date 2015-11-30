@@ -14,7 +14,9 @@ class SpockRestSpec extends Specification implements RestTrait{
             resp.contentType == "application/json"
 
         and: "the person matches our expectations"
-            resp.json.fname == 'william'
-            resp.json.lname == 'cherry'
+            with(resp.json) {
+                fname == 'william'
+                lname == 'cherry'
+            }
     }
 }
